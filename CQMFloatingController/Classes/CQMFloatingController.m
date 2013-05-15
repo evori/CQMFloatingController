@@ -265,10 +265,11 @@
 	 }
 					 completion:
 	 ^(BOOL finished) {
-		 if (finished) {
-			 [me.view removeFromSuperview];
+         @synchronized(self) {
 			 presented_ = NO;
-		 }
+         }
+         
+         [me.view removeFromSuperview];
 	 }];
 }
 
